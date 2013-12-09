@@ -60,15 +60,11 @@
 				<dict>
 					<key>COMMAND_STRING</key>
 					<string>for FILE in "$@"; do
-	echo $FILE &gt;&gt; /Users/chris/VerifyGPG.log.txt
 	if [[ -e "$FILE.asc" ]]; then
-		echo $FILE.asc &gt;&gt; ~/VerifyGPG.log.txt
 		open -g -a "GPGServices.service" "$FILE.asc"
 	elif [[ -e "$FILE.sig" ]]; then
-		echo $FILE &gt;&gt; /Users/chris/VerifyGPG.log.txt
 		open -g -a "GPGServices.service" "$FILE.sig"
 	elif [[ -e "${FILE%????}" ]]; then
-		echo ${FILE%????} &gt;&gt; /Users/chris/VerifyGPG.log.txt
 		open -g -a "GPGServices.service" "$FILE"
 	fi
 done</string>
